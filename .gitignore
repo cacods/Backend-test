@@ -1,0 +1,17 @@
+## Vim IDE
+# gutentags/ctags
+.root
+tags
+
+## Pycharm
+.idea
+
+## AWS SAM
+.aws-sam
+samconfig.toml
+
+## Venv
+venv
+
+## Generic
+__pycache__
