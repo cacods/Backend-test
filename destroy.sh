@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "=== Deleting SAM Stack ==="
-sam delete --no-prompts
+docker-compose exec -T sam-deployer sam delete --no-prompts
 
 docker-compose down
 
