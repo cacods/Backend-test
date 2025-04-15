@@ -5,7 +5,6 @@ import boto3
 
 try:
     # If running locally, import from the parent directory
-    # TODO: is there a better way, without having to change the import?
     from lambda_functions.auth import InvalidTokenException, validate_token
     from lambda_functions.utils import DecimalEncoder
 except ImportError:
@@ -33,7 +32,7 @@ def lambda_handler(event, context):
     auth_token = event.get("headers", {}).get("Authorization")
     try:
         validate_token(auth_token)
-    except InvalidTokenException as e:  # TODO: couldn't it be a decorator?
+    except InvalidTokenException as e:
         return {
             "statusCode": 401,
             "body": json.dumps({"error": str(e)}),
@@ -53,7 +52,7 @@ def lambda_handler(event, context):
             "statusCode": 200,
             "body": json.dumps(response["Item"], cls=DecimalEncoder),
         }
-    except Exception as e:  # TODO: specify Exception (see other places)
+    except Exception as e:
         return {
             "statusCode": 500,
             "body": json.dumps({"error": str(e)}),

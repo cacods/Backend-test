@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "orders-api"       # Default stack name
+region = "eu-west-1"           # Your preferred region
+s3_prefix = "orders-api"       # S3 prefix for deployment artifacts
+capabilities = "CAPABILITY_IAM" # Required for IAM resources
+confirm_changeset = false       # Skip changeset confirmation
+disable_rollback = false        # Auto-rollback on failure

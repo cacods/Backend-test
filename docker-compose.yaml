@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  sam-deployer:
+    build: .
+    container_name: sam-deployer
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    environment:
+      AWS_DEFAULT_REGION: eu-west-1
